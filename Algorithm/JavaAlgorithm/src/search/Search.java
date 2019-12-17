@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class Search {
 
+    //二分查找 数组必须是有序的
     public static int BinarySearch_1(int key, int[] a) {
         int lo = 0;
         int hi = a.length - 1;
