@@ -27,7 +27,7 @@
 
 package offer;
 
-public class FindNumberIn2DArray{
+public class A002_FindNumberIn2DArray{
     public static int findNumberIn2DArray(int[][] array, int num){
         if (array.length <= 0 || array[0].length <= 0) {
             return -1;

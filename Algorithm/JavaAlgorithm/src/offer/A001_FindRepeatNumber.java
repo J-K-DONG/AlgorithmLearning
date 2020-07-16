@@ -7,14 +7,14 @@
 
 输入：
 [2, 3, 1, 0, 2, 5, 3]
-输出：2 或 3 
+输出：2 或 3
 **/
 
 
 package offer;
 import java.util.Arrays;
 
-public class FindRepeatNumber {
+public class A001_FindRepeatNumber {
     public static int findRepeatNumber(int[] array){
         for(int i = 0; i < array.length; i++){
             if (array[i] >= array.length) {

@@ -12,7 +12,7 @@
 
 package offer;
 
-public class ExchangeSpace{
+public class A003_ExchangeSpace{
     public static String exchangeSpace(String str){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
