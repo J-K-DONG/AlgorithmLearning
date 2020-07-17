@@ -20,6 +20,7 @@ Integer是java为int提供的封装类。int的默认值为0， 而Integer的默
 package offer;
 import datastructures.linkedList.singleLinkedList.SingleLinkedList;
 import datastructures.linkedList.singleLinkedList.Node;
+import java.util.ArrayList;
 
 
 public class A004_LinkListReversePrint<AnyType> extends SingleLinkedList<AnyType> {
@@ -29,10 +30,12 @@ public class A004_LinkListReversePrint<AnyType> extends SingleLinkedList<AnyType
     };
 
     // 单链表 从旧链表的头部依次拆下  然后头插法组成新的链表 然后输出
-    public boolean singleLinkListReversePrint(SingleLinkedList<AnyType> list) {
+    public ArrayList<AnyType> singleLinkListReversePrint(SingleLinkedList<AnyType> list) {
         if (list.isEmpty()) {
-            return false;
+            return null;
         }
+        int arrayLength = list.length();
+        ArrayList<AnyType> array = new ArrayList<>();
         Node<AnyType> head = list.removeGetNode(0);
         head.next = null;
         Node<AnyType> temp = head;
@@ -41,9 +44,18 @@ public class A004_LinkListReversePrint<AnyType> extends SingleLinkedList<AnyType
             temp.next = head;
             head = temp;
         }
-        SingleLinkedList<AnyType> reverseList = new SingleLinkedList<>(head);
-        System.out.println(reverseList.toString());
-        return true;
+
+        // 创建ArrayList
+        int i = 0;
+        while (temp != null) {
+            array.add(temp.data);
+            temp = temp.next;
+            i++;
+        }
+
+        //SingleLinkedList<AnyType> reverseList = new SingleLinkedList<>(head);
+        //System.out.println(reverseList.toString());
+        return array;
     }
 
     public static void main(String[] args) {
@@ -51,8 +63,12 @@ public class A004_LinkListReversePrint<AnyType> extends SingleLinkedList<AnyType
         SingleLinkedList<String> list = new SingleLinkedList<>(array);
         System.out.println(list.toString());
         A004_LinkListReversePrint<String> lrp = new A004_LinkListReversePrint<>();
-        boolean flag = lrp.singleLinkListReversePrint(list);
-        System.out.println(flag);
+        ArrayList<String> res = lrp.singleLinkListReversePrint(list);
+        int i = 0;
+        while ( i < res.size()) {
+            System.out.print(res.get(i) + " ");
+            i++;
+        }
 
     }
 }
