@@ -99,6 +99,8 @@ public class HeadSingleLinkedList<AnyType> implements ILinkedList<AnyType> {
         return null;
     }
 
+    // index 0 ~ list.length()
+    //如果增加的是末尾节点 要更新尾指针
     public boolean add(int index, AnyType data) {
         if (index >= 0 && data != null && this.head.next != null) {
             int i = 0;
@@ -109,16 +111,20 @@ public class HeadSingleLinkedList<AnyType> implements ILinkedList<AnyType> {
             }
             if (i == index && temp != null) {
                 temp.next = new Node<AnyType>(data, temp.next);
+                if (temp.next.next == null) {
+                    this.rear = temp.next;
+                }
                 return true;
             }
         }
         return false;
     }
 
-    // 从末尾增加节点 使用尾指针 rear
+    // 从末尾增加节点 使用尾指针 rear 并更新rear
     public boolean add(AnyType data) {
         if (data != null) {
             this.rear.next = new Node<AnyType>(data);
+            this.rear = this.rear.next;
             return true;
         }
         return false;
@@ -135,20 +141,29 @@ public class HeadSingleLinkedList<AnyType> implements ILinkedList<AnyType> {
             if (i == index && pre.next != null) {
                 AnyType oldData = pre.data;
                 pre.next = pre.next.next;
+                //如果是末尾节点 要更新尾指针
+                if (pre.next == null) {
+                    this.rear = pre;
+                }
                 return oldData;
             }
         }
         return null;
     }
 
+    //如果是末尾节点 要更新尾指针
     public boolean removeAll(AnyType data) {
         if (this.head.next != null && data != null) {
             Node<AnyType> pre = this.head;
             int count = 0;
             while (pre.next != null) {
                 if (pre.next.data == data) {
-                    pre.next = pre.next.next;
                     count++;
+                    pre.next = pre.next.next;
+                    if (pre.next == null) {
+                        this.rear = pre;
+                        break;
+                    }
                 }
                 pre = pre.next;
             }
@@ -208,34 +223,35 @@ public class HeadSingleLinkedList<AnyType> implements ILinkedList<AnyType> {
         //Node<Integer> node = new Node<>(1);
         //HeadSingleLinkedList<Integer> list = new HeadSingleLinkedList<>(node);
 
-        System.out.println("list is empty? : " + list.isEmpty());
+        System.out.println("list.isEmpty() is : " + list.isEmpty());
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("the length of list is " + list.length());
-        System.out.println(list.toString());
+        System.out.println("list.length() is : " + list.length());
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("the ith data is " + list.get(4));
-        System.out.println(list.toString());
+        System.out.println("list.get(index = 4) is " + list.get(4));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("set(index = 2, data = 'a') : " + list.set(2, "a"));
-        System.out.println(list.toString());
+        System.out.println("list.set(index = 2, data = 'a') : " + list.set(2, "a"));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("add(index = 0, data = '000') : " + list.add(0, "000"));
-        System.out.println(list.toString());
+        System.out.println("list.add(index = 5, data = '000') : " + list.add(5, "000"));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("add(data = 'rear') is : " + list.add("rear"));
-        System.out.println(list.toString());
+        System.out.println("list.add(data = 'rear') is : " + list.add("rear"));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("remove(index = 4) is : " + list.remove(4));
-        System.out.println(list.toString());
+        System.out.println("list.remove(index = 6) is : " + list.remove(6));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        //System.out.println("removeAll(data = 'a') is : " + list.removeAll("a"));
-        System.out.println(list.toString());
+        System.out.println("list.removeAll(data = 'a') is : " + list.removeAll("a"));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
         //list.clear();
-        System.out.println(list.toString());
+        //System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
-        System.out.println("contains('a') is : " + list.contains("a"));
-        System.out.println(list.toString());
+        System.out.println("list.contains(data = 'a') is : " + list.contains("a"));
+        System.out.println(list.toString() + "---------- head.next.data = " + list.head.next.data + " | rear.data = " + list.rear.data);
 
 
         System.out.println("list.toString() is : " + list.toString());
