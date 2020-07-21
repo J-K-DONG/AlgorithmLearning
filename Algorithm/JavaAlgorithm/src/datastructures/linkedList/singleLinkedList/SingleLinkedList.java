@@ -6,7 +6,6 @@ Single linked list structure
 package datastructures.linkedList.singleLinkedList;
 import datastructures.linkedList.ILinkedList;
 
-
 public class SingleLinkedList<AnyType> implements ILinkedList<AnyType> {
     protected Node<AnyType> head;
 

@@ -14,17 +14,17 @@ public interface ILinkedList<AnyType> {
 
     AnyType set(int index, AnyType data);
 
-    boolean add(int index, AnyType value);
+    boolean add(int index, AnyType data);
 
-    boolean add(AnyType value);
+    boolean add(AnyType data);
 
     AnyType remove(int index);
 
-    boolean removeAll(AnyType value);
+    boolean removeAll(AnyType data);
 
     void clear();
 
-    boolean contains(AnyType value);
+    boolean contains(AnyType data);
 
     String toString();
 }
