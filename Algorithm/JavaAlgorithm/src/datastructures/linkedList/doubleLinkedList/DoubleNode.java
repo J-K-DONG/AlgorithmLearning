@@ -1,7 +1,7 @@
 /**
 node of double linked list
 **/
-package datastructures.linkedList.singleLinkedList;
+package datastructures.linkedList.doubleLinkedList;
 
 public class DoubleNode<AnyType> {
     public DoubleNode<AnyType> next;

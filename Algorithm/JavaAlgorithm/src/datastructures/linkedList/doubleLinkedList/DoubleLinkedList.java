@@ -3,7 +3,7 @@ double linked list with head point
 **/
 
 
-package datastructures.linkedList.singleLinkedList;
+package datastructures.linkedList.doubleLinkedList;
 import datastructures.linkedList.ILinkedList;
 
 public class DoubleLinkedList<AnyType> implements ILinkedList<AnyType> {
@@ -255,6 +255,10 @@ public class DoubleLinkedList<AnyType> implements ILinkedList<AnyType> {
         //DoubleNode<String> str = new DoubleNode<>("node");
 
         DoubleLinkedList<String> list = new DoubleLinkedList<>(str);
+
+        System.out.println("list.isEmpty()" + list.isEmpty());
+        System.out.println(list.toStringCircular() + " list.head.data = " + list.head.data + "  list.head.pre = " + list.head.pre);
+        
         System.out.println("list.toString()" + list.toString());
         System.out.println(list.toStringCircular() + " list.head.data = " + list.head.data + "  list.head.pre = " + list.head.pre);
 
