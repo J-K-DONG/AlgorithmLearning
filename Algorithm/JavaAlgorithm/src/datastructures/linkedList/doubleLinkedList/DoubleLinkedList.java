@@ -258,7 +258,7 @@ public class DoubleLinkedList<AnyType> implements ILinkedList<AnyType> {
 
         System.out.println("list.isEmpty()" + list.isEmpty());
         System.out.println(list.toStringCircular() + " list.head.data = " + list.head.data + "  list.head.pre = " + list.head.pre);
-        
+
         System.out.println("list.toString()" + list.toString());
         System.out.println(list.toStringCircular() + " list.head.data = " + list.head.data + "  list.head.pre = " + list.head.pre);
 

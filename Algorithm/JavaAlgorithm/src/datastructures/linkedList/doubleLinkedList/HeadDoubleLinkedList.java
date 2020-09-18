@@ -266,7 +266,7 @@ public class HeadDoubleLinkedList<AnyType> implements ILinkedList<AnyType> {
 
         System.out.println("list.contains(data = 'a') is : " + list.contains("a"));
         System.out.println(list.toStringCircular() + " list.head.next.data = " + list.head.next.data + "  list.rear.data = " + list.rear.data);
-        
+
         System.out.println("list.removeAll(data = 'a') is : " + list.removeAll("a"));
         System.out.println(list.toStringCircular() + " list.head.next.data = " + list.head.next.data + "  list.rear.data = " + list.rear.data);
 
